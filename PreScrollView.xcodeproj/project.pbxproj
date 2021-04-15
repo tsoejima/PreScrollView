@@ -16,6 +16,9 @@
 		DF74CC612628683B00F508E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF74CC5F2628683B00F508E9 /* LaunchScreen.storyboard */; };
 		DF74CC6C2628683B00F508E9 /* PreScrollViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF74CC6B2628683B00F508E9 /* PreScrollViewTests.swift */; };
 		DF74CC772628683B00F508E9 /* PreScrollViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF74CC762628683B00F508E9 /* PreScrollViewUITests.swift */; };
+		DF74CC8B262869B300F508E9 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF74CC88262869B300F508E9 /* image1.jpg */; };
+		DF74CC8C262869B300F508E9 /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF74CC89262869B300F508E9 /* image2.jpg */; };
+		DF74CC8D262869B300F508E9 /* image3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF74CC8A262869B300F508E9 /* image3.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		DF74CC722628683B00F508E9 /* PreScrollViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PreScrollViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF74CC762628683B00F508E9 /* PreScrollViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreScrollViewUITests.swift; sourceTree = "<group>"; };
 		DF74CC782628683B00F508E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF74CC88262869B300F508E9 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
+		DF74CC89262869B300F508E9 /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
+		DF74CC8A262869B300F508E9 /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 		DF74CC502628683900F508E9 /* PreScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				DF74CC87262869B300F508E9 /* image */,
 				DF74CC512628683900F508E9 /* AppDelegate.swift */,
 				DF74CC532628683900F508E9 /* SceneDelegate.swift */,
 				DF74CC552628683900F508E9 /* ViewController.swift */,
@@ -129,6 +136,16 @@
 				DF74CC782628683B00F508E9 /* Info.plist */,
 			);
 			path = PreScrollViewUITests;
+			sourceTree = "<group>";
+		};
+		DF74CC87262869B300F508E9 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				DF74CC88262869B300F508E9 /* image1.jpg */,
+				DF74CC89262869B300F508E9 /* image2.jpg */,
+				DF74CC8A262869B300F508E9 /* image3.jpg */,
+			);
+			path = image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +252,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF74CC612628683B00F508E9 /* LaunchScreen.storyboard in Resources */,
+				DF74CC8C262869B300F508E9 /* image2.jpg in Resources */,
+				DF74CC8B262869B300F508E9 /* image1.jpg in Resources */,
+				DF74CC8D262869B300F508E9 /* image3.jpg in Resources */,
 				DF74CC5E2628683B00F508E9 /* Assets.xcassets in Resources */,
 				DF74CC592628683900F508E9 /* Main.storyboard in Resources */,
 			);
