@@ -9,7 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private var scrollView: UIScrollView!
+    //private var scrollView: UIScrollView!
+    @IBOutlet private weak var scrollView: UIScrollView!
     
     struct Photo {
             var imageName: String
@@ -24,20 +25,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-                self.scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 211))
+        self.scrollView.contentSize = CGSize(width: self.view.frame.size.width*3, height: self.scrollView.frame.size.height)
+
+        self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
         
-                self.scrollView.contentSize = CGSize(width: self.view.frame.size.width*3, height: self.scrollView.frame.size.height)
+        self.scrollView.delegate = self
 
-                self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
+        self.scrollView.isPagingEnabled = true
 
-                self.scrollView.delegate = self
-
-                self.scrollView.isPagingEnabled = true
-
-                self.scrollView.showsHorizontalScrollIndicator = false
-                self.view.addSubview(scrollView)
+        self.scrollView.showsHorizontalScrollIndicator = false
+        self.view.addSubview(scrollView)
                 
-                self.setUpImageView()
+        self.setUpImageView()
     }
     
         func createImageView(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat, image: Photo) -> UIImageView {
