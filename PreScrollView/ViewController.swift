@@ -21,13 +21,14 @@ class ViewController: UIViewController {
             Photo(imageName: "image2"),
             Photo(imageName: "image3")
         ]
+        var imageCount = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.scrollView.contentSize = CGSize(width: self.view.frame.size.width*3, height: self.scrollView.frame.size.height)
 
-        self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
+        self.scrollView.contentSize = CGSize(width: self.view.frame.size.width * CGFloat(photoList.count + 3), height: self.scrollView.frame.size.height)
+
+        self.scrollView.contentOffset = CGPoint(x: self.view.frame.size.width, y: 0)
         
         self.scrollView.delegate = self
 
@@ -47,16 +48,43 @@ class ViewController: UIViewController {
         }
         
         func setUpImageView() {
-            for i in 0 ..< self.photoList.count {
-                let photoItem = self.photoList[i]
-                let imageView = createImageView(x: 0, y: 0, width: self.view.frame.size.width, height: self.scrollView.frame.size.height, image: photoItem)
-                imageView.frame = CGRect(origin: CGPoint(x: self.view.frame.size.width * CGFloat(i), y: 0), size: CGSize(width: self.view.frame.size.width, height: self.scrollView.frame.size.height))
+            
+            if self.photoList.count < 2 {
+                scrollView.isHidden = true
+                let imageView = createImageView(x: 0, y: 0, width: self.view.frame.size.width, height: self.scrollView.frame.size.height, image: photoList[0])
+                imageView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.view.frame.size.width, height: self.scrollView.frame.size.height))
+                self.view.addSubview(imageView)
+            } else {
+                scrollView.isHidden = false
+                for i in 0 ..< self.photoList.count {
+                    let photoItem = self.photoList[i]
+                    let imageView = createImageView(x: 0, y: 0, width: self.view.frame.size.width, height: self.scrollView.frame.size.height, image: photoItem)
+                    imageView.frame = CGRect(origin: CGPoint(x: self.view.frame.size.width * CGFloat(i + 1), y: 0), size: CGSize(width: self.view.frame.size.width, height: self.scrollView.frame.size.height))
+                    self.scrollView.addSubview(imageView)
+                }
+                imageCount = photoList.count
+                var imageView = createImageView(x: 0, y: 0, width: self.view.frame.size.width, height: self.scrollView.frame.size.height, image: photoList[imageCount - 1])
+                imageView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.view.frame.size.width, height: self.scrollView.frame.size.height))
+                self.scrollView.addSubview(imageView)
+                imageView = createImageView(x: 0, y: 0, width: self.view.frame.size.width, height: self.scrollView.frame.size.height, image: photoList[0])
+                imageView.frame = CGRect(origin: CGPoint(x: Int(self.view.frame.size.width) * (imageCount + 1), y: 0), size: CGSize(width: self.view.frame.size.width, height: self.scrollView.frame.size.height))
                 self.scrollView.addSubview(imageView)
             }
         }
     }
-
+    
     extension ViewController: UIScrollViewDelegate {
+        public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            let offset = scrollView.contentOffset
+            if offset.x < self.view.frame.size.width - (self.view.frame.size.width - 1) {
+                self.scrollView.setContentOffset(.init(x: self.view.frame.size.width * CGFloat(imageCount), y: 0), animated: false)
+            } else if offset.x > self.view.frame.size.width * (CGFloat(imageCount) + 1){
+                self.scrollView.setContentOffset(.init(x: self.view.frame.size.width, y: 0), animated: false)
+            }
+        }
+    }
+
+    /*extension ViewController: UIScrollViewDelegate {
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
             let offsetX = self.scrollView.contentOffset.x
             
@@ -85,5 +113,5 @@ class ViewController: UIViewController {
                 self.scrollView.contentOffset.x += self.scrollView.frame.size.width
             }
         }
-    }
+    }*/
 
