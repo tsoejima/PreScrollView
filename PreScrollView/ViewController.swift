@@ -35,6 +35,7 @@ class ViewController: UIViewController {
         self.scrollView.isPagingEnabled = true
 
         self.scrollView.showsHorizontalScrollIndicator = false
+        
         self.view.addSubview(scrollView)
                 
         self.setUpImageView()
@@ -71,6 +72,9 @@ class ViewController: UIViewController {
                 self.scrollView.addSubview(imageView)
             }
         }
+    
+    func generatePager() {
+    }
     }
     
     extension ViewController: UIScrollViewDelegate {
